@@ -39,7 +39,7 @@
 //                 id="nom_complet"
 //                 name="nom_complet"
 //                 required
-//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
 //               />
 //             </div>
 
@@ -52,7 +52,7 @@
 //                 id="numero"
 //                 name="numero"
 //                 required
-//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
 //               />
 //             </div>
 
@@ -64,7 +64,7 @@
 //                 id="adresse"
 //                 name="adresse"
 //                 rows={3}
-//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
 //               />
 //             </div>
 
@@ -76,7 +76,7 @@
 //                 id="role"
 //                 name="role"
 //                 required
-//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
 //               >
 //                 <option value="visiteur">Visiteur</option>
 //                 <option value="pasteur">Pasteur</option>
@@ -95,7 +95,7 @@
 //                 name="mot_de_passe"
 //                 required
 //                 minLength={6}
-//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+//                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
 //               />
 //             </div>
 //           </div>
@@ -103,14 +103,14 @@
 //           <button
 //             type="submit"
 //             disabled={isLoading}
-//             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+//             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
 //           >
 //             {isLoading ? 'Inscription en cours...' : "S'inscrire"}
 //           </button>
 
 //           <p className="text-center text-sm text-gray-600">
 //             Déjà inscrit ?{' '}
-//             <a href="/login" className="font-medium text-green-600 hover:text-green-500">
+//             <a href="/login" className="font-medium text-blue-600 hover:text-blue-500">
 //               Connectez-vous
 //             </a>
 //           </p>
@@ -139,17 +139,22 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow">
+      <div className="max-w-3xl w-full space-y-8 bg-white p-8 rounded-lg shadow">
         <div>
           <h1 className="text-3xl font-bold text-center text-gray-900">
             Inscription
           </h1>
+                    <img src='/logo.png' className='w-20 h-20 mx-auto my-4' alt='Logo' />
+
           <p className="mt-2 text-center text-sm text-gray-600">
             Créez votre compte pour accéder à l'application
           </p>
         </div>
         
         <form action={handleSubmit} className="mt-8 space-y-6">
+
+            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+
           <div className="space-y-4">
             <div>
               <label htmlFor="nom_complet" className="block text-sm font-medium text-gray-700">
@@ -160,7 +165,7 @@ export default function RegisterPage() {
                 id="nom_complet"
                 name="nom_complet"
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
@@ -175,7 +180,7 @@ export default function RegisterPage() {
                 name="email"
                 required
                 placeholder="exemple@email.com"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
@@ -189,10 +194,13 @@ export default function RegisterPage() {
                 name="numero"
                 required
                 placeholder="+243 XX XXX XXXX"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
+          </div>
+
+        <div className="space-y-4">
             <div>
               <label htmlFor="adresse" className="block text-sm font-medium text-gray-700">
                 Adresse
@@ -202,7 +210,7 @@ export default function RegisterPage() {
                 name="adresse"
                 rows={3}
                 placeholder="Votre adresse complète"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
@@ -214,7 +222,7 @@ export default function RegisterPage() {
                 id="role"
                 name="role"
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="visiteur">Visiteur</option>
                 <option value="pasteur">Pasteur</option>
@@ -234,22 +242,25 @@ export default function RegisterPage() {
                 required
                 minLength={6}
                 placeholder="Minimum 6 caractères"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500"
+                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
-          </div>
+
+        
+            </div>
+        </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? 'Inscription en cours...' : "S'inscrire"}
           </button>
 
           <p className="text-center text-sm text-gray-600">
             Déjà inscrit ?{' '}
-            <a href="/login" className="font-medium text-green-600 hover:text-green-500">
+            <a href="/login" className="font-medium text-blue-600 hover:text-blue-500">
               Connectez-vous
             </a>
           </p>

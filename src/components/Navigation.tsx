@@ -516,7 +516,8 @@ import {
   BarChart3,
   Activity,
   Home,
-  Church
+  Church,
+  ChartArea
 } from 'lucide-react'
 
 interface User {
@@ -588,7 +589,7 @@ export default function Navigation({ user, children }: NavigationProps) {
         ]
       case 'secretaire':
         return [
-          { href: '/secretaire/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+        //   { href: '/secretaire/dashboard', label: 'Dashboard', icon: LayoutDashboard },
         //   { href: '/membres', label: 'Membres', icon: Users },
           { href: '/secretaire/statistiques', label: 'Statistiques', icon: BarChart3 },
           { href: '/secretaire/visites', label: 'Visites', icon: Activity },
@@ -597,7 +598,7 @@ export default function Navigation({ user, children }: NavigationProps) {
       case 'pasteur':
         return [
           { href: '/pasteur/visites', label: 'Dashboard', icon: LayoutDashboard },
-          { href: '/pasteur/statistiques', label: 'Cultes', icon: Church },
+          { href: '/pasteur/stats', label: 'Statistiques', icon: ChartArea },
         //   { href: '/membres', label: 'Membres', icon: Users },
           { href: '/profile', label: 'Profil', icon: UserCircle },
         ]

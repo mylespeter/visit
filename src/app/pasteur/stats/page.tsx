@@ -396,7 +396,6 @@ import {
 } from 'recharts'
 import { format, subDays } from 'date-fns'
 import { fr } from 'date-fns/locale'
-import ExportButtons from './ExportButtons'
 import { getUser } from '@/actions/auth'
 import { redirect } from 'next/navigation'
 import Image from 'next/image'
@@ -457,7 +456,7 @@ export default function StatistiquesPage() {
     setLoading(true)
     const user = await getUser()
     
-    if (!user || !['admin', 'secretaire'].includes(user.role?.nom)) {
+    if (!user || !['admin', 'pasteur'].includes(user.role?.nom)) {
       redirect('/profile')
       return
     }
@@ -552,7 +551,6 @@ export default function StatistiquesPage() {
               
               {/* Export button mobile-friendly */}
               <div className="flex-1 sm:flex-none">
-                <ExportButtons data={[]} stats={stats} />
               </div>
             </div>
           </div>
