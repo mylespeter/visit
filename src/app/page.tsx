@@ -1,62 +1,30 @@
+import Link from 'next/link'
 
-
-import { projects } from '@/lib/utils'
-import { FaBolt } from 'react-icons/fa6'
-import FAQ from '@/components/FAQ'
-import TestimonialPage from '@/components/TestimonialPage'
-import TextImageFill from '@/components/TextImageFill';
-import LuxuraGrid from '@/components/LuxuraGrid'
-import TeamPage from '@/components/TeamPage';
-import HeroPage from '@/components/HeroPage'
-import QuiSommesNousPage from '@/components/QuiSommesNousPage';
-import NewsLeterSubscribe from '@/components/NewsletterSubscribe';
-import Services from '@/components/services';
-import FeaturedBlogsSection from '@/components/FeaturedBlogsSection';
-import WhereWeWork from '@/components/WhereWeWork';
-import ServicesPresentation from '@/components/ServicesPresentation';
 export default function Home() {
-  const featuredProjects = projects.filter(project => project.featured)
-
   return (
-    <>
-      <main className="min-h-screen  pt-5 relative  dark:bg-black">
-        <section className="py-4 px- max-w-7xl mx-auto">
-        <HeroPage/>
-          <div className='z-50'>
-<QuiSommesNousPage/>
- 
-  <WhereWeWork/>
-{/* <LuxuraGrid/>
-<Services/> */}
-<ServicesPresentation />
-   
-
- 
-<TeamPage/>
-          </div>
-         
-        </section>
-
-
-        <TestimonialPage/>
-        <div className="fle md:flex-rowflex-col px-2">
-          <div className='bg-re-500 w-max mx-auto'>
-
-
-   <TextImageFill
-  text="Great"
-  image="/nine.jpg"
-  fontSize="100px"
-  fontWeight="900"
-/>
-
-          </div>
-<FeaturedBlogsSection/>
-      <FAQ/>
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+      <div className="max-w-3xl text-center">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          Gestion des Visites Pastorales
+        </h1>
+        <p className="text-xl text-gray-600 mb-8">
+          Organisez et digitalisez les rencontres pastorales en toute simplicité
+        </p>
+        <div className="space-x-4">
+          <Link
+            href="/login"
+            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          >
+            Se connecter
+          </Link>
+          <Link
+            href="/register"
+            className="inline-block bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition"
+          >
+            S'inscrire
+          </Link>
         </div>
-        <NewsLeterSubscribe/>
-          {/* <ServicesShowcase/> */}
-      </main>
-    </>
+      </div>
+    </div>
   )
 }

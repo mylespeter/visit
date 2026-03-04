@@ -1,70 +1,99 @@
 
+// // import { getUser } from '@/actions/auth'
+// // import Navigation from '@/components/Navigation'
+// // import { Toaster } from 'react-hot-toast'
+// // import './globals.css'
 
-// import type { Metadata } from 'next';
-// import { ThemeProvider } from '@/context/ThemeContext';
-// import './globals.css';
-// import LayoutTransition from '@/components/LayoutTransition';
-// import NavBar from '@/components/NavBar';
-// import FooterUltraMinimal from '@/components/Footer';
-// import SupabaseProvider from '@/providers/supabase-provider'
-// export const metadata: Metadata = {
-//   title: 'Portfolio - Creative Developer',
-//   description: 'Modern portfolio showcasing cutting-edge web development projects',
-// };
+// // export default async function RootLayout({
+// //   children,
+// // }: {
+// //   children: React.ReactNode
+// // }) {
+// //   const user = await getUser()
 
-// export default function RootLayout({
+// //   return (
+// //     <html lang="fr">
+// //       <body className="bg-gray-50">
+// //         <Navigation user={user} />
+// //         <main className="transition-all duration-300">
+// //           {children}
+// //         </main>
+// //         <Toaster 
+// //           position="top-right"
+// //           toastOptions={{
+// //             duration: 4000,
+// //             style: {
+// //               background: '#363636',
+// //               color: '#fff',
+// //             },
+// //           }}
+// //         />
+// //       </body>
+// //     </html>
+// //   )
+// // }
+// import { getUser } from '@/actions/auth'
+// import Navigation from '@/components/Navigation'
+// import { Toaster } from 'react-hot-toast'
+// import './globals.css'
+
+// export default async function RootLayout({
 //   children,
 // }: {
-//   children: React.ReactNode;
+//   children: React.ReactNode
 // }) {
+//   const user = await getUser()
+
 //   return (
-//     <html lang="fr" suppressHydrationWarning>
-//       <body >
-//           <SupabaseProvider>
-
-
-//         <LayoutTransition>
-
-   
-//        <NavBar/>
-
-//           <main className=" bg-white  "> {/* Compensation pour la navbar fixe */}
-//             {children}
-//           </main>
-//         <FooterUltraMinimal/>
-//         </LayoutTransition>
-//           </SupabaseProvider>
+//     <html lang="fr">
+//       <body className="bg-gray-50">
+//         <Navigation user={user} />
+//         <main className="transition-all duration-300 min-h-">
+//           {children}
+//         </main>
+//         <Toaster 
+//           position="top-right"
+//           toastOptions={{
+//             duration: 4000,
+//             style: {
+//               background: '#363636',
+//               color: '#fff',
+//             },
+//           }}
+//         />
 //       </body>
 //     </html>
-//   );
+//   )
 // }
-import type { Metadata } from 'next';
-import './globals.css';
-import LayoutTransition from '@/components/LayoutTransition';
-import SupabaseProvider from '@/providers/supabase-provider';
-import LayoutWrapper from '@/components/LayoutWrapper';
+import { getUser } from '@/actions/auth'
+import Navigation from '@/components/Navigation'
+import { Toaster } from 'react-hot-toast'
+import './globals.css'
 
-export const metadata: Metadata = {
-  title: 'Portfolio - Creative Developer',
-  description: 'Modern portfolio showcasing cutting-edge web development projects',
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
+  const user = await getUser()
+
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <body>
-        <SupabaseProvider>
-          <LayoutTransition>
-            <LayoutWrapper>
-              {children}
-            </LayoutWrapper>
-          </LayoutTransition>
-        </SupabaseProvider>
+    <html lang="fr">
+      <body className="bg-gray-50">
+        <Navigation user={user}>
+          {children}
+        </Navigation>
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+            },
+          }}
+        />
       </body>
     </html>
-  );
+  )
 }
