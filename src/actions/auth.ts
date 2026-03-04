@@ -412,9 +412,9 @@ export async function getUser() {
 
 function getRedirectPathByRole(role: string): string {
   const paths: Record<string, string> = {
-    'admin': '/admin/dashboard',
-    'pasteur': '/pasteur/dashboard',
-    'secretaire': '/secretaire/dashboard',
+    'admin': '/admin/membres',
+    'pasteur': '/pasteur/visites',
+    'secretaire': '/secretaire/visites',
     'visiteur': '/visiteur/dashboard'
   }
   return paths[role] || '/profile'
