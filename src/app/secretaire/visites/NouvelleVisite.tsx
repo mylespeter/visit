@@ -334,7 +334,9 @@ export default function NouvelleVisite({ config }: NouvelleVisiteProps) {
 
   return (
     <div className="bg-white rounded-lg border border-gray-100 p-6">
-    
+      <h2 className="text-sm font-medium text-gray-900 mb-4">
+        Nouveau rendez-vous
+      </h2>
 
       <form action={handleSubmit} className="space-y-4">
 

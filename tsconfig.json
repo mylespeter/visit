@@ -38,7 +38,7 @@
     "src/components/AnimatedSVG.jsx",
     "src/components/ImageWithText.jsx",
     ".next/dev/types/**/*.ts"
-, "src/app/about/page.jsx", "src/components/FAQ.jsx", "src/components/FAQ.jsx", "src/components/HeroPage.jsx", "src/components/WhereWeWork.jsx", "src/components/WhereWeWork.jsx", "src/components/NavBar.jsx", "src/components/TeamPage.jsx", "src/components/TestimonialPage.jsx", "src/components/TeamPage.jsx", "src/components/NewsletterSubscribe.jsx"  ],
+, "src/app/about/page.tsx", "src/components/FAQ.jsx", "src/components/FAQ.jsx", "src/components/HeroPage.jsx", "src/components/WhereWeWork.jsx", "src/components/WhereWeWork.jsx", "src/components/NavBar.jsx", "src/components/TeamPage.jsx", "src/components/TestimonialPage.jsx", "src/components/TeamPage.jsx", "src/components/NewsletterSubscribe.jsx"  ],
   "exclude": [
     "node_modules"
   ]
