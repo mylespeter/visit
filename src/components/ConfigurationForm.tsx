@@ -71,7 +71,7 @@ export default function ConfigurationForm({ configs }: ConfigurationFormProps) {
   ]
 
   return (
-    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
+    <div className="bg-white  border border-gray-100 overflow-hidden">
       <form onSubmit={handleSubmit} className="p-3  grid grid-cols-2 gap-3">
         {configItems.map((item) => (
           <div key={item.cle} className="space-y-2 ">
@@ -90,7 +90,7 @@ export default function ConfigurationForm({ configs }: ConfigurationFormProps) {
               max={item.max}
               step={item.step}
               required
-              className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-gray-300"
+              className="w-full px-3 py-2 border border-gray-200 rounded- text-sm focus:outline-none focus:border-gray-300"
             />
           </div>
         ))}
@@ -106,7 +106,7 @@ export default function ConfigurationForm({ configs }: ConfigurationFormProps) {
           <button
             type="submit"
             disabled={isLoading}
-            className="px-4 py-2 bg-gray-900 text-white text-sm rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50"
+            className="px-4 py-2 bg-green-600 text-white text-sm  hover:bg-green-800 transition-colors disabled:opacity-50"
           >
             {isLoading ? 'Enregistrement...' : 'Enregistrer'}
           </button>
