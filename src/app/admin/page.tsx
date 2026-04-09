@@ -384,7 +384,7 @@ import { getUser } from '@/actions/auth'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import AdminTabs from './AdminTabs'
+import AdminTabs from '@/components/AdminTabs'
 import { TrendingUp, TrendingDown, Users, CalendarDays, Tag } from 'lucide-react'
 
 export default async function AdminPage() {

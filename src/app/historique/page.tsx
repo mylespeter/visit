@@ -1175,7 +1175,6 @@ export default function HistoriquePage() {
                        </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center gap-2">
-                          <span className="text-lg">{getMotifIcon(visite.motif)}</span>
                           <span className="text-sm text-gray-700">{getMotifDisplay(visite)}</span>
                         </div>
                        </td>
