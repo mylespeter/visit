@@ -98,9 +98,9 @@ export async function POST(request: NextRequest) {
 
     // Déterminer la redirection selon le rôle
     const redirectPaths: Record<string, string> = {
-      'admin': '/admin/membres',
+      'admin': '/visites',
       'pasteur': '/pasteur/visites',
-      'secretaire': '/secretaire/visites',
+      'secretaire': '/visites',
       'visiteur': '/visiteur/dashboard'
     }
     

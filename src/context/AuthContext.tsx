@@ -142,7 +142,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       } else if (role === 'admin') {
         router.push('/admin/membres')
       } else if (role === 'secretaire') {
-        router.push('/secretaire/visites')
+        router.push('/visites')
       } else {
         router.push('/visites')
       }
