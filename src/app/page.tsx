@@ -568,23 +568,28 @@ export default function HomePage() {
   const isToday = format(currentDate, 'yyyy-MM-dd') === format(new Date(), 'yyyy-MM-dd')
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 pt-5 via-l
+     to-white">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
+      <header className="bg-white border-b max-w-6xl rounded- mx-auto  border-gray-100 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 py-4 sm:py-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <div className='flex items-center gap-2'>
+              <img src='./logo.png' className='w-10' alt='Logo' />  
+              <div>
+
+              <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">
                 Visites pastorales
               </h1>
-              <p className="text-gray-500 text-sm mt-1">Gestion des visites et rendez-vous</p>
+              <p className="text-gray-500 text-sm mt-1">Gestion des visites et rendez-vous (Parole Eternelle Belair)</p>
+              </div>
             </div>
             <button
               onClick={() => setIsLoginModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium  transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <LogIn className="w-4 h-4" />
-              Connexion
+              Se connecter à l'espace privé
             </button>
           </div>
         </div>
@@ -634,16 +639,16 @@ export default function HomePage() {
         </div>
 
         {/* Tableau des visites */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-white  shadow-sm border border-gray-100 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-100">
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">HEURE</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">VISITEUR</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">EMAIL</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">TYPE</th>
-                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">STATUT</th>
+                  <th className="px-4 py-3 text-left text-sm font-bold text-gray-800 uppercase tracking-wider">HEURE</th>
+                  <th className="px-4 py-3 text-left text-sm font-bold text-gray-800 uppercase tracking-wider">VISITEUR</th>
+                  <th className="px-4 py-3 text-left text-sm font-bold text-gray-800 uppercase tracking-wider">EMAIL</th>
+                  <th className="px-4 py-3 text-left text-sm font-bold text-gray-800 uppercase tracking-wider">TYPE</th>
+                  <th className="px-4 py-3 text-left text-sm font-bold text-gray-800 uppercase tracking-wider">STATUT</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
@@ -725,7 +730,7 @@ export default function HomePage() {
           
           {/* Modal */}
           <div className="flex min-h-full items-center justify-center p-4">
-            <div className="relative bg-white rounded-2xl shadow-xl max-w-md w-full transform transition-all">
+            <div className="relative bg-white  shadow-xl max-w-md w-full transform transition-all">
               {/* Bouton fermer */}
               <button
                 onClick={() => setIsLoginModalOpen(false)}
@@ -801,7 +806,7 @@ export default function HomePage() {
                           [loginMethod === 'email' ? 'email' : 'numero']: e.target.value
                         })}
                         placeholder={loginMethod === 'email' ? 'secretaire@example.com' : '06 12 34 56 78'}
-                        className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                        className="w-full pl-10 pr-4 py-2.5 border border-gray-200 -xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                         required
                       />
                     </div>
@@ -821,7 +826,7 @@ export default function HomePage() {
                         value={loginForm.mot_de_passe}
                         onChange={(e) => setLoginForm({ ...loginForm, mot_de_passe: e.target.value })}
                         placeholder="••••••••"
-                        className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                        className="w-full pl-10 pr-4 py-2.5 border border-gray-200 -xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                         required
                       />
                     </div>
@@ -831,7 +836,7 @@ export default function HomePage() {
                   <button
                     type="submit"
                     disabled={isLoggingIn}
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-2.5 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-2.5  transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isLoggingIn ? (
                       <>
@@ -848,13 +853,13 @@ export default function HomePage() {
                 </form>
 
                 {/* Demo credentials */}
-                <div className="mt-6 p-3 bg-gray-50 rounded-xl border border-gray-100">
+                {/* <div className="mt-6 p-3 bg-gray-50 rounded-xl border border-gray-100">
                   <p className="text-xs text-gray-500 text-center mb-1">Compte de démonstration</p>
                   <div className="text-center text-xs text-gray-600">
                     <p>Email: <span className="font-mono text-blue-600">sec@gmail.com</span></p>
                     <p>Mot de passe: <span className="font-mono text-blue-600">123456</span></p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
