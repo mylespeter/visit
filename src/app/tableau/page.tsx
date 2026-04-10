@@ -472,14 +472,14 @@ export default function TableauVisites() {
                         </div>
                       </td>
                       <td className="px-4 py-3">
-                        <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
-                          visite.est_membre ? 'bg-purple-100 text-purple-700' : 'bg-gray-100 text-gray-600'
+                        <span className={`inline-flex items-center px-2 py-0.5  text-xs font-medium ${
+                          visite.est_membre ? 'bg-black text-white' : 'bg-gray-100 text-gray-600'
                         }`}>
                           {visite.est_membre ? 'Oui' : 'Non'}
                         </span>
                       </td>
-                      <td className="px-4 py-3">
-                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getStatutColor(visite.statut)}`}>
+                      <td className="px- py-3">
+                        <span className={`inline-flex items-center px-2 py-1  text-xs font-medium ${getStatutColor(visite.statut)}`}>
                           {visite.statut}
                         </span>
                       </td>

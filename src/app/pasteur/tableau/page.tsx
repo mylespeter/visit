@@ -1310,11 +1310,7 @@ export default function TableauVisites() {
           </div>
         )}
 
-        <div className="mt-6 text-right">
-          <p className="text-sm text-gray-400">
-            Bienvenue, Emmanuel
-          </p>
-        </div>
+      
       </div>
 
       {/* Modal des notes pastorales */}
@@ -1325,7 +1321,7 @@ export default function TableauVisites() {
               <div className="flex justify-between items-center">
                 <div>
                   <h2 className="text-lg font-semibold flex items-center gap-2">
-                    <StickyNote className="w-5 h-5" />
+                    <FileText className="w-5 h-5" />
                     Note Pastorale
                   </h2>
                   <p className="text-sm text-purple-100 mt-1">
@@ -1376,7 +1372,7 @@ export default function TableauVisites() {
                           <p className="text-xs text-gray-500 uppercase font-semibold">Contenu</p>
                           <button
                             onClick={handleEditNote}
-                            className="text-sm bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-1"
+                            className="text-sm py-1 px-2 bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-1"
                           >
                             <Edit2 className="w-4 h-4" />
                             Modifier

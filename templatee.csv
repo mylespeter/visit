@@ -1,0 +1,114 @@
+﻿N°;Mat.;NOM;POSTNOM;PRENOM;GENRE;name;email;password;username
+1;22AR001;ALBATY;RAMAZANI;Prince;M;ALBATY Prince;22ar001@esisalama.org;22ar001;aprince
+2;22AR002;ALPHONSE;ROGER;Manara;M;ALPHONSE Manara;22ar002@esisalama.org;22ar002;aManara
+3;22BS008;BAKARI;SOMWE;Gustave;M;BAKARI Gustave;22bs008@esisalama.org;22bs008;bGustave
+4;21BB018;BANZA;BANZA;Jenovic;M;BANZA Jenovic;21bb018@esisalama.org;21bb018;bJenovic
+5;21BW020;BANZA;WA KIHUNDA;Mike;M;BANZA Mike;21bw020@esisalama.org;21bw020;bMike
+6;22BM019;BEYA;MUTOMBO;Mike;M;BEYA Mike;22bm019@esisalama.org;22bm019;bMike
+7;22BC022;BISIMWA;CIBALONZA;Jenny;F;BISIMWA Jenny;22bc022@esisalama.org;22bc022;bJenny
+8;22BK030;BUNANA;KAUNDA;Samuel;M;BUNANA Samuel;22bk030@esisalama.org;22bk030;bSamuel
+9;22CN034;CELESTIN;NDOLE;Silva;M;CELESTIN Silva;22cn034@esisalama.org;22cn034;cSilva
+10;21CB039;CHELUBALA;BAHATI;Blaise;M;CHELUBALA Blaise;21cb039@esisalama.org;21cb039;cBlaise
+11;22FN048;FAIDA;NKUBIRHI;Mugoli;F;FAIDA Mugoli;22fn048@esisalama.org;22fn048;fMugoli
+12;22FM052;FEZA;MBUNGU;Jemima;F;FEZA Jemima;22fm052@esisalama.org;22fm052;fJemima
+ ;22FK053;FUNDA;KAMANA;Marie;F;FUNDA Marie;22fk053@esisalama.org;22fk053;fMarie
+14;22IA059;ILUNGA;A KADIAT;Emmanuel;M;ILUNGA Emmanuel;22ia059@esisalama.org;22ia059;iEmmanuel
+15;21IM064;ILUNGA;MAKOBO;Jean- Gilbert;M;ILUNGA Jean- Gilbert;21im064@esisalama.org;21im064;iJean- Gilbert
+16;22IM068;ILUNGA;MULAJA;Emmanuel;M;ILUNGA Emmanuel;22im068@esisalama.org;22im068;iEmmanuel
+17;22IN071;ILUNGA;NGOIE;Armand;M;ILUNGA Armand;22in071@esisalama.org;22in071;iArmand
+18;22IY074;ILUNGA;YAN;Yan;M;ILUNGA Yan;22iy074@esisalama.org;22iy074;iYan
+19;22JK081;JONAS;KATAMBWA;Katambwa;M;JONAS Katambwa;22jk081@esisalama.org;22jk081;jKatambwa
+20;22JM082;JUMA;MWANSA;Vianney;F;JUMA Vianney;22jm082@esisalama.org;22jm082;jVianney
+21;21KR086;KABEMBA;RUSUMBA;Elkana;M;KABEMBA Elkana;21kr086@esisalama.org;21kr086;kElkana
+22;18KW082;KABEYA;WA KABEYA;Mardoché;M;KABEYA Mardoché;18kw082@esisalama.org;18kw082;kMardoché
+23;21KI097;KABILA;ILUNGA;Loïck;M;KABILA Loïck;21ki097@esisalama.org;21ki097;kLoïck
+24;19KW094;KABONGO;WA KABONGO;Elie;M;KABONGO Elie;19kw094@esisalama.org;19kw094;kElie
+25;20KN100;KABULO;NGOY;Israel;M;KABULO Israel;20kn100@esisalama.org;20kn100;kIsrael
+26;19KC102;KADIATOU;CONDE;Kadidja;F;KADIATOU Kadidja;19kc102@esisalama.org;19kc102;kKadidja
+27;22KT117;KALAU;TUTE;Daniel;M;KALAU Daniel;22kt117@esisalama.org;22kt117;kDaniel
+28;22KL120;KALENGA;LAÏLAÏ;Moïse;M;KALENGA Moïse;22kl120@esisalama.org;22kl120;kMoïse
+29;20KM120;KALENGA;MBUYA;Aristote;M;KALENGA Aristote;20km120@esisalama.org;20km120;kAristote
+30;20KN123;KALENGA;NKULU;Sarah;F;KALENGA Sarah;20kn123@esisalama.org;20kn123;kSarah
+31;22KK124;KALOBA;KILAKA;Pierette;F;KALOBA Pierette;22kk124@esisalama.org;22kk124;kPierette
+32;20KB135;KALUME;BIN ILUNGA;Joel;M;KALUME Joel;20kb135@esisalama.org;20kb135;kJoel
+33;22KB132;KAMANGO;BALIKUMI;Adolphe;M;KAMANGO Adolphe;22kb132@esisalama.org;22kb132;kAdolphe
+34;19KM137;KAMASHI;MALENGA;Chadrack;M;KAMASHI Chadrack;19km137@esisalama.org;19km137;kChadrack
+35;18KK120;KAMBAJI;KABEYA;Mike;M;KAMBAJI Mike;18kk120@esisalama.org;18kk120;kMike
+36;22KM150;KAPOYA;MABANZA;Eben;M;KAPOYA Eben;22km150@esisalama.org;22km150;kEben
+37;19KM177;KASHINGA;MULOKO;Hadassa;F;KASHINGA Hadassa;19km177@esisalama.org;19km177;kHadassa
+38;22KK155;KASONGO;KANT;Gaston;M;KASONGO Gaston;22kk155@esisalama.org;22kk155;kGaston
+39;18KM154;KASONGO;MWANZA;Valery;M;KASONGO Valery;18km154@esisalama.org;18km154;kValery
+40;21KW202;KAYALA;WA KALUNDA;Jacques;M;KAYALA Jacques;21kw202@esisalama.org;21kw202;kJacques
+41;20KK217;KAYOWA;KATANGA;Ursule;F;KAYOWA Ursule;20kk217@esisalama.org;20kk217;kUrsule
+42;22KW176;KIBALA;WA KIBALI;Aaron;M;KIBALA Aaron;22kw176@esisalama.org;22kw176;kAaron
+43;20KK244;KINGOMBE;KATWISHI;Micheline;F;KINGOMBE Micheline;20kk244@esisalama.org;20kk244;kMicheline
+44;19KK229;KISILE;KALENGA;Myriam;F;KISILE Myriam;19kk229@esisalama.org;19kk229;kMyriam
+45;22KK193;KYAMBWE;KAKUNI;Emmanuel;M;KYAMBWE Emmanuel;22kk193@esisalama.org;22kk193;kEmmanuel
+46;22LN201;LOMBE;NYEMBO;Grace;M;LOMBE Grace;22ln201@esisalama.org;22ln201;lGrace
+47;22LK208;LUKENGE;KAPWIBWE;Théa;F;LUKENGE Théa;22lk208@esisalama.org;22lk208;lThéa
+48;19LK256;LUMBWE;KIDIATA;Jacob;M;LUMBWE Jacob;19lk256@esisalama.org;19lk256;lJacob
+49;22MK218;MACHING;KAVOT;Daniel;M;MACHING Daniel;22mk218@esisalama.org;22mk218;mDaniel
+50;20MN279;MADYA;NGOY;Ernest;M;MADYA Ernest;20mn279@esisalama.org;20mn279;mErnest
+51;18MP227;MAKANGA;PEDRO;Franck;M;MAKANGA Franck;18mp227@esisalama.org;18mp227;mFranck
+52;21MT282;MALEMBA;TSHISUPA;Hermann;M;MALEMBA Hermann;21mt282@esisalama.org;21mt282;mHermann
+53;21MM288;MANDONA;MAYANI;Prince;M;MANDONA Prince;21mm288@esisalama.org;21mm288;mPrince
+54;22MM232;MATANDA;MATANDA;Idriss;M;MATANDA Idriss;22mm232@esisalama.org;22mm232;mIdriss
+55;18MM245;MAZANGA;MPALANGA;Consolate;F;MAZANGA Consolate;18mm245@esisalama.org;18mm245;mConsolate
+56;22MK238;MBAYA;KOLELA;Patrick;M;MBAYA Patrick;22mk238@esisalama.org;22mk238;mPatrick
+57;21MM303;MBAYO;MBUYA;Oris;M;MBAYO Oris;21mm303@esisalama.org;21mm303;mOris
+58;22MB243;MBIYA;BANZA;Josué;M;MBIYA Josué;22mb243@esisalama.org;22mb243;mJosué
+59;22MK246;MBOMBO;KALALA;Henock;M;MBOMBO Henock;22mk246@esisalama.org;22mk246;mHenock
+60;22MN262;MONGA;NUMBI;Chrinovic;M;MONGA Chrinovic;22mn262@esisalama.org;22mn262;mChrinovic
+61;20MM343;MPOKASHI;MBWABWA;Evodi;F;MPOKASHI Evodi;20mm343@esisalama.org;20mm343;mEvodi
+62;22MB271;M'POYO;BIN-NDALA;Pascal;M;M'POYO Pascal;22mb271@esisalama.org;22mb271;mPascal
+63;21MS339;MUGANZA;SHABANI;Josué;M;MUGANZA Josué;21ms339@esisalama.org;21ms339;mJosué
+64;16MY274;MUKAZ;YAV;Alpha;M;MUKAZ Alpha;16my274@esisalama.org;16my274;mAlpha
+65;22MM287;MUKAZO;MAZANGA;Don;M;MUKAZO Don;22mm287@esisalama.org;22mm287;mDon
+66;20MI376;MULAJA;ILUNGA;Hance;M;MULAJA Hance;20mi376@esisalama.org;20mi376;mHance
+67;22MK308;MUMBA;KISALA;John;M;MUMBA John;22mk308@esisalama.org;22mk308;mJohn
+68;22MM311;MUNAN;MUKAZ;Nathan;M;MUNAN Nathan;22mm311@esisalama.org;22mm311;mNathan
+69;20MM385;MUNGOMBA;MULASHI;Esther;F;MUNGOMBA Esther;20mm385@esisalama.org;20mm385;mEsther
+70;22MM328;MUSONDA;MBUYA;Médalie;F;MUSONDA Médalie;22mm328@esisalama.org;22mm328;mMédalie
+71;21MN413;MWANZA;NGOIE;Tony;M;MWANZA Tony;21mn413@esisalama.org;21mn413;mTony
+72;19MP397;MWANZA;PWI;Jenny;F;MWANZA Jenny;19mp397@esisalama.org;19mp397;mJenny
+73;20MW431;MWELWA;WA KIBWE;Alphonsine;F;MWELWA Alphonsine;20mw431@esisalama.org;20mw431;mAlphonsine
+74;20NM440;NANDJIMBA;MUTOMBO;Donatien;M;NANDJIMBA Donatien;20nm440@esisalama.org;20nm440;nDonatien
+75;18NY358;NAWEJ;YAV;John;M;NAWEJ John;18ny358@esisalama.org;18ny358;nJohn
+76;20NB442;NDASENGA;BWAMIngoy;Cedric;M;NDASENGA Cedric;20nb442@esisalama.org;20nb442;nCedric
+77;22NK508;NGOIE;KALUME;Kevine;F;NGOIE Kevine;22nk508@esisalama.org;22nk508;nKevine
+78;22NB396;NGOY;BAHATI KAYOYO;Landry;M;NGOY Landry;22nb396@esisalama.org;22nb396;nLandry
+79;22NT404;NGOY;TSHIBANGU;Chris;M;NGOY Chris;22nt404@esisalama.org;22nt404;nChris
+80;20NM490;NYEMBA;MUZEMBE;Belle Grace;F;NYEMBA Belle Grace;20nm490@esisalama.org;20nm490;nBelle Grace
+81;18NT407;NYEMBA;TSHIMBALANGA;Deviane;F;NYEMBA Deviane;18nt407@esisalama.org;18nt407;nDeviane
+82;22NK431;NYEMBO;KAMWANGA;Michel;M;NYEMBO Michel;22nk431@esisalama.org;22nk431;nMichel
+83;21OB501;OKENGE;BIGOMOKERO;Ben;M;OKENGE Ben;21ob501@esisalama.org;21ob501;oBen
+84;22RI441;RUMB;IRUMB-PASCAL;Sam;M;RUMB Sam;22ri441@esisalama.org;22ri441;rSam
+85;20SK508;SAFI;KIPOKA;Gorethy;F;SAFI Gorethy;20sk508@esisalama.org;20sk508;sGorethy
+86;22SI446;SAIDI;ISAAC;Alain;M;SAIDI Alain;22si446@esisalama.org;22si446;sAlain
+87;22SM462;SUMPI;MUSABUKA;Othniel;M;SUMPI Othniel;22sm462@esisalama.org;22sm462;sOthniel
+88;22SK463;SUMUNYI;KALEBO;Eric;M;SUMUNYI Eric;22sk463@esisalama.org;22sk463;sEric
+89;20TL521;TCHUNGU;LWAMBA;Patrice;M;TCHUNGU Patrice;20tl521@esisalama.org;20tl521;tPatrice
+90;21TM562;TSHOKWE;MUKE;Christian;M;TSHOKWE Christian;21tm562@esisalama.org;21tm562;tChristian
+91;22VK495;VUNDULA;KASEYA;Bertin;M;VUNDULA Bertin;22vk495@esisalama.org;22vk495;vBertin
+1;22BM012;BANKULE;MANDE;Dora;F;BANKULE Dora;22bm012@esisalama.org;22bm012;bDora
+2;22CN038;CHUNGU;NGOY;Sonia;F;CHUNGU Sonia;22cn038@esisalama.org;22cn038;cSonia
+3;22CM039;CIKURU;MUSHARAMINA;Gédéon;M;CIKURU Gédéon;22cm039@esisalama.org;22cm039;cGédéon
+4;22DG040;DIBWE;GEORGES;Stéphane;M;DIBWE Stéphane;22dg040@esisalama.org;22dg040;dStéphane
+5;22GS056;GULO;STAMILI;Nuschkah;F;GULO Nuschkah;22gs056@esisalama.org;22gs056;gNuschkah
+6;22KM093;KABILAYI;MWAMBA;Billy;M;KABILAYI Billy;22km093@esisalama.org;22km093;kBilly
+7;22KM098;KABONGO;MULOPWE;Benjamin;M;KABONGO Benjamin;22km098@esisalama.org;22km098;kBenjamin
+8;20KK143;KAMINA;KALAMBA;Colombe;F;KAMINA Colombe;20kk143@esisalama.org;20kk143;kColombe
+9;21KF206;KAYEMBE;FUNDI;Ludovic;M;KAYEMBE Ludovic;21kf206@esisalama.org;21kf206;kLudovic
+10;22LM212;LUMBU;MWANIA;Guillaume;M;LUMBU Guillaume;22lm212@esisalama.org;22lm212;lGuillaume
+11;21LM266;LUNDA;MWANZA;Isabelle;F;LUNDA Isabelle;21lm266@esisalama.org;21lm266;lIsabelle
+12;21MT331;MPIANA;TSHIMBOMBO;Elchana;M;MPIANA Elchana;21mt331@esisalama.org;21mt331;mElchana
+13;22MI342;MUTWALE;ILUNGA;Adora;M;MUTWALE Adora;22mi342@esisalama.org;22mi342;mAdora
+14;20MK411;MUYANO;KAPINDJI;Chekina;M;MUYANO Chekina;20mk411@esisalama.org;20mk411;mChekina
+15;22MA352;MWAMB;A-TSHIYAZ;Nicodème;M;MWAMB Nicodème;22ma352@esisalama.org;22ma352;mNicodème
+16;21NK470;NKOY;KAFUTSHI;Milka;F;NKOY Milka;21nk470@esisalama.org;21nk470;nMilka
+17;22SM449;SAMWANDA;MWABILAYI;Hénoc;M;SAMWANDA Hénoc;22sm449@esisalama.org;22sm449;sHénoc
+18;22SB460;SPIRO;BALASKAS;Stavros;M;SPIRO Stavros;22sb460@esisalama.org;22sb460;sStavros
+19;21SL523;SUMBA;LWAMBA;Elias;M;SUMBA Elias;21sl523@esisalama.org;21sl523;sElias
+20;22SM464;SUNGU;MBUYA;Théodorel;M;SUNGU Théodorel;22sm464@esisalama.org;22sm464;sThéodorel
+21;22TN475;TSHIKUNDA;NTUMBA;Moise;M;TSHIKUNDA Moise;22tn475@esisalama.org;22tn475;tMoise
+22;21TK567;TWITE;KIBONDA;Ketsia;F;TWITE Ketsia;21tk567@esisalama.org;21tk567;tKetsia

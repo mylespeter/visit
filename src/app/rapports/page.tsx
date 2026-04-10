@@ -272,7 +272,7 @@
 //     return (
 //       <div className="flex items-center justify-center h-96">
 //         <div className="text-center">
-//           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+//           <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-t-gray-200/40 border-t-4 border-r-4 border-r-gray-200/40 border-l-4 border-blue-600 mx-auto"></div>
 //           <p className="mt-4 text-gray-600">Chargement des statistiques...</p>
 //         </div>
 //       </div>
@@ -307,7 +307,7 @@
 //               type="date"
 //               value={dateDebutInput}
 //               onChange={(e) => setDateDebutInput(e.target.value)}
-//               className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+//               className="border text-sm px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
 //             />
 //           </div>
 //           <div>
@@ -316,18 +316,18 @@
 //               type="date"
 //               value={dateFinInput}
 //               onChange={(e) => setDateFinInput(e.target.value)}
-//               className="border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+//               className="border text-sm  px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
 //             />
 //           </div>
 //           <button
 //             onClick={handleApplyFilter}
-//             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+//             className="bg-green-600 text-sm text-white px-4 py-2  hover:bg-green-700 transition-colors"
 //           >
 //             Appliquer
 //           </button>
 //           <button
 //             onClick={handleResetFilter}
-//             className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors"
+//             className="bg-gray-200 text-gray-700 px-4 py-2 text-sm hover:bg-gray-300 transition-colors"
 //           >
 //             Réinitialiser
 //           </button>
@@ -626,10 +626,11 @@
 //     </div>
 //   )
 // }
+
 // app/secretaire/statistiques/page.tsx
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import {
   LineChart,
   Line,
@@ -645,7 +646,7 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts'
-import { Calendar, Users, Clock, CheckCircle, XCircle, AlertCircle, Download, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Calendar, Users, Clock, CheckCircle, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import { getStatistiques, getAllVisites } from '@/actions/visites'
 
 // Types
@@ -696,6 +697,10 @@ export default function StatistiquesPage() {
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 5
 
+  // Flag pour éviter les appels multiples (comme dans TableauVisites)
+  const [hasLoaded, setHasLoaded] = useState(false)
+  const isMounted = useRef(true)
+
   // Calculer les dates par défaut (il y a une semaine jusqu'à aujourd'hui)
   const getDefaultDates = () => {
     const today = new Date()
@@ -715,7 +720,7 @@ export default function StatistiquesPage() {
     }
   }
 
-  // Initialiser les dates par défaut au chargement
+  // Initialiser les dates par défaut au chargement (une seule fois)
   useEffect(() => {
     const defaultDates = getDefaultDates()
     setDateDebutInput(defaultDates.debut)
@@ -724,48 +729,88 @@ export default function StatistiquesPage() {
     setDateFin(defaultDates.fin)
   }, [])
 
-  // Charger les statistiques quand les dates de filtrage changent
+  // Fonction pour charger toutes les données (similaire à TableauVisites)
+  const loadAllData = useCallback(async (debut: string, fin: string) => {
+    if (!debut || !fin) return
+    
+    try {
+      setLoading(true)
+      setError(null)
+      
+      console.log('📊 Chargement des statistiques pour la période:', debut, '->', fin)
+      
+      // Charger les statistiques
+      const statsResult = await getStatistiques(debut, fin)
+      
+      if (!statsResult.success) {
+        throw new Error(statsResult.error || 'Erreur lors du chargement des statistiques')
+      }
+      
+      if (isMounted.current) {
+        setStatistiques(statsResult.stats)
+      }
+      
+      // Charger TOUTES les visites (comme dans TableauVisites)
+      console.log('📋 Chargement de toutes les visites...')
+      const visitesResult = await getAllVisites()
+      
+      if (!visitesResult.success) {
+        throw new Error(visitesResult.error || 'Erreur lors du chargement des visites')
+      }
+      
+      if (visitesResult.data && Array.isArray(visitesResult.data) && isMounted.current) {
+        console.log(`✅ ${visitesResult.data.length} visites chargées au total`)
+        
+        // Filtrer les visites par date
+        const filteredVisites = visitesResult.data.filter((visite: Visite) => {
+          return visite.date_visite >= debut && visite.date_visite <= fin
+        })
+        
+        console.log(`📊 ${filteredVisites.length} visites dans la période sélectionnée`)
+        setVisites(filteredVisites)
+      } else if (isMounted.current) {
+        setVisites([])
+      }
+      
+    } catch (err) {
+      console.error('❌ Erreur dans loadAllData:', err)
+      if (isMounted.current) {
+        setError(err instanceof Error ? err.message : 'Erreur lors du chargement des données')
+      }
+    } finally {
+      if (isMounted.current) {
+        setLoading(false)
+      }
+    }
+  }, [])
+
+  // Charger les données quand les dates changent et que le composant est monté
+  useEffect(() => {
+    if (dateDebut && dateFin && !hasLoaded) {
+      loadAllData(dateDebut, dateFin)
+      setHasLoaded(true)
+    }
+  }, [dateDebut, dateFin, loadAllData, hasLoaded])
+
+  // Réinitialiser hasLoaded quand les dates changent (pour recharger)
   useEffect(() => {
     if (dateDebut && dateFin) {
-      loadStatistiques()
+      setHasLoaded(false)
     }
   }, [dateDebut, dateFin])
+
+  // Nettoyage du composant
+  useEffect(() => {
+    isMounted.current = true
+    return () => {
+      isMounted.current = false
+    }
+  }, [])
 
   // Réinitialiser la page quand les visites changent
   useEffect(() => {
     setCurrentPage(1)
   }, [visites])
-
-  const loadStatistiques = async () => {
-    setLoading(true)
-    setError(null)
-    
-    try {
-      const statsResult = await getStatistiques(dateDebut, dateFin)
-      
-      if (!statsResult.success) {
-        setError(statsResult.error || 'Erreur lors du chargement des statistiques')
-        setLoading(false)
-        return
-      }
-      
-      setStatistiques(statsResult.stats)
-      
-      const visitesResult = await getAllVisites()
-      
-      if (visitesResult.success && visitesResult.data) {
-        const filteredVisites = visitesResult.data.filter((visite: Visite) => {
-          return visite.date_visite >= dateDebut && visite.date_visite <= dateFin
-        })
-        setVisites(filteredVisites)
-      }
-      
-    } catch (err) {
-      setError('Erreur lors du chargement des statistiques')
-    } finally {
-      setLoading(false)
-    }
-  }
 
   // Appliquer le filtre manuellement
   const handleApplyFilter = () => {
@@ -899,8 +944,8 @@ export default function StatistiquesPage() {
     return (
       <div className="flex items-center justify-center h-96">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-t-gray-200/40 border-t-4 border-r-4 border-r-gray-200/40 border-l-4 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Chargement des statistiques...</p>
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-gray-300 border-t-gray-600"></div>
+          <p className="mt-4 text-sm text-gray-500">Chargement des statistiques...</p>
         </div>
       </div>
     )
@@ -908,8 +953,27 @@ export default function StatistiquesPage() {
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 rounded-lg p-4 m-4">
-        <p className="text-red-600">{error}</p>
+      <div className="bg-red-50 border border-red-200 rounded-lg p-6 m-4">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
+            <span className="text-2xl">⚠️</span>
+          </div>
+          <h3 className="text-lg font-medium text-gray-900 mb-2">Erreur de chargement</h3>
+          <p className="text-red-600 mb-4">{error}</p>
+          <button 
+            onClick={() => {
+              setHasLoaded(false)
+              setLoading(true)
+              setError(null)
+              if (dateDebut && dateFin) {
+                loadAllData(dateDebut, dateFin)
+              }
+            }} 
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition"
+          >
+            Réessayer
+          </button>
+        </div>
       </div>
     )
   }
@@ -920,21 +984,21 @@ export default function StatistiquesPage() {
   return (
     <div className="p-6 space-y-6">
       {/* En-tête */}
-      <div className="flex justify-between items-start">
+      <div className="flex justify-between items-start flex-wrap gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Statistiques des Visites</h1>
           <p className="text-gray-600 mt-1">Analyse détaillée des visites sur la période</p>
         </div>
         
         {/* Filtres de date */}
-        <div className="flex gap-3 items-end">
+        <div className="flex gap-3 items-end flex-wrap">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Date début</label>
             <input
               type="date"
               value={dateDebutInput}
               onChange={(e) => setDateDebutInput(e.target.value)}
-              className="border text-sm px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="border text-sm px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           <div>
@@ -943,18 +1007,18 @@ export default function StatistiquesPage() {
               type="date"
               value={dateFinInput}
               onChange={(e) => setDateFinInput(e.target.value)}
-              className="border text-sm  px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="border text-sm px-3 py-2 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
           <button
             onClick={handleApplyFilter}
-            className="bg-green-600 text-sm text-white px-4 py-2  hover:bg-green-700 transition-colors"
+            className="bg-green-600 text-sm text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
           >
             Appliquer
           </button>
           <button
             onClick={handleResetFilter}
-            className="bg-gray-200 text-gray-700 px-4 py-2 text-sm hover:bg-gray-300 transition-colors"
+            className="bg-gray-200 text-gray-700 px-4 py-2 text-sm rounded-lg hover:bg-gray-300 transition-colors"
           >
             Réinitialiser
           </button>
@@ -963,7 +1027,7 @@ export default function StatistiquesPage() {
 
       {/* Cartes KPI */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">Total Visites</p>
@@ -975,7 +1039,7 @@ export default function StatistiquesPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">Visites Reçues</p>
@@ -989,7 +1053,7 @@ export default function StatistiquesPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">En Attente</p>
@@ -1001,7 +1065,7 @@ export default function StatistiquesPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-4">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-600">Taux de Complétion</p>
@@ -1017,7 +1081,7 @@ export default function StatistiquesPage() {
       {/* Graphiques */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Graphique des visites par jour */}
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Visites par {prepareDataParJour().length > 0 && prepareDataParJour()[0]?.date?.includes('S') ? 'Semaine' : 'Jour'}
           </h2>
@@ -1051,8 +1115,8 @@ export default function StatistiquesPage() {
           )}
         </div>
 
-        {/* Graphique des statuts en Doughnut avec légende en bas */}
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-6">
+        {/* Graphique des statuts */}
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Visites par Statut</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -1094,7 +1158,7 @@ export default function StatistiquesPage() {
         </div>
 
         {/* Graphique des motifs */}
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Visites par Motif</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={prepareDataParMotif()} layout="vertical">
@@ -1112,7 +1176,7 @@ export default function StatistiquesPage() {
         </div>
 
         {/* Membres vs Non-Membres */}
-        <div className="bg-white rounded- shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Membres vs Non-Membres</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -1140,8 +1204,8 @@ export default function StatistiquesPage() {
         </div>
       </div>
 
-      {/* Tableau des visites récentes avec pagination */}
-      <div className="bg-white rounded- shadow-sm border border-gray-200 overflow-hidden">
+      {/* Tableau des visites avec pagination */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
           <h2 className="text-lg font-semibold text-gray-900">Détail des Visites</h2>
           <div className="text-sm text-gray-500">
@@ -1166,7 +1230,7 @@ export default function StatistiquesPage() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">{visite.nom_visiteur}</div>
                     <div className="text-sm text-gray-500">{visite.telephone}</div>
-                   </td>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{visite.date_visite}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{visite.heure}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{visite.motif}</td>
@@ -1202,7 +1266,7 @@ export default function StatistiquesPage() {
         
         {/* Pagination */}
         {visites.length > 0 && (
-          <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+          <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between flex-wrap gap-4">
             <div className="text-sm text-gray-500">
               Affichage de {indexOfFirstItem + 1} à {Math.min(indexOfLastItem, visites.length)} sur {visites.length} visites
             </div>
